@@ -1,0 +1,29 @@
+<div class="container">
+
+	<div class="row text-center">
+		<h2>{{title}}</h2>	
+	</div>
+
+	<br>
+
+	<div class="table-full">
+  		<div class="table-responsive">
+			<table class="table">
+				<theader>
+			        <tr>
+			            <th ng-repeat="header in listDescription.listOfColumns">{{header}}</th>
+			        </tr>           
+			    </theader>
+			    <tbody>
+			    	<tr ng-repeat="object in listOfObjects">
+				        <td ng-repeat="header in listDescription.listOfColumns">
+				        	<a ng-if='header == "Op"' class="btn btn-block btn-info" ng-click="getRow(object.ID)">{{object[header]}} <span class="glyphicon glyphicon-circle-arrow-righ"></span></a>
+
+				        	<span ng-if='header != "Op"'>{{object[header]}}</span>
+				        </td>
+			    	</tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,121 @@
+<div class="form-group">
+
+	<label for="description">Nombre del layout</label>
+	<input type="text" ng-focus="focus('description')" ng-blur="blur('description')" ng-model="formData.description"
+		name="description" class="form-control" placeholder="Ingrese un nombre" required
+		ng-minlength="5">
+
+	<div class="error-messages" ng-show="isMessagesVisible('description')" ng-messages="layoutInformationModelForm.description.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <div ng-message="minlength">El Nombre debe tener al menos 5 caracteres.</div>
+    </div>
+
+</div>
+
+<div class="row form-group">
+	<!--script type="text/ng-template" id="modules/loadInformation/views/modal.html"-->
+		<div ng-controller='ModalCtrl'>
+			<div class="col-xs-3">
+				<a class="btn btn-block btn-info btn-modal" ng-click="openModal('custom-modal-1')">
+					Nuevo Grupo <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+				</a>
+			</div>
+		 	<div class="custom-modal" ng-class="{expanded: $scope.modalWindow, collapsed: !$scope.modalWindow}">
+		 		
+		 		<div class="modal">
+		 			<div class="modal-body">
+				 		<div class="row form-group">
+							<label for="grId" class="col-md-4 control-label">Identificador</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control"  ng-model="id">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<label for="grDesc" class="col-md-4 control-label">Descripción</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control"  ng-model="desc">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-4">
+								<a class="btn btn-block btn-info" ng-click="hideModal('custom-modal-1')"> Cerrar <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-background"></div>
+
+		 	</modal>
+		</div>
+	<!--/script-->
+</div>
+<!--div class="row form-group">
+	<label for="grId" class="col-md-2 control-label">Identificador</label>
+	<div class="col-md-6">
+		<input type="text" class="form-control"  data-ng-model="id">
+	</div>
+</div>
+
+<div class="row form-group">
+	<label for="grDesc" class="col-md-2 control-label">Descripción</label>
+	<div class="col-md-6">
+		<input type="text" class="form-control"  data-ng-model="desc">
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-xs-3">
+		<a class="btn btn-block btn-info" data-ng-click="clearGroup()">
+			Agregar grupo <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+</div-->
+
+<div class="form-group">
+	<h4>Grupos</h4>
+
+	<div class="table-full">
+  		<div class="table-responsive">
+  			<!-- Se mostraría la tabla si esta tiene al menos un elemento ng-if="tabla.size > 0"-->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Descripción</th>
+						<th>Habilitar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="group in groups">
+						<td>{{group.id}}</td>
+						<td>{{group.description}}</td>
+						<td><input type="checkbox" value="{{group.enabled}}"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- Aquí iría un mensaje que indica que no hay grupos creados -->
+
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+
+	<div class="col-xs-7"></div>
+
+	<div class="col-xs-3 col-xs-offset-2">
+		<a ui-sref="addLayout.part2" class="btn btn-block btn-info">
+			Siguiente <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+
+</div>
+
+<pre>
+	{{ id }}
+</pre>

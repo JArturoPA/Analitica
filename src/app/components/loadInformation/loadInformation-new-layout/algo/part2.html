@@ -1,0 +1,76 @@
+<div class="row">
+	<h3 ng-if="isQualitative == 1">Análisis Cualitativo</h3>
+	<h3 ng-if="isQualitative == 0">Análisis Cuantitativo</h3>
+
+	<h4>Grupos de variables</h4>
+</div>
+
+<div class="form-group">
+
+	<label for="grupo">Nombre</label>
+	<input type="text" ng-focus="focus('grupo')" ng-blur="blur('grupo')" ng-model="formData.analysis[isQualitative].GDV[indexGDV[isQualitative]].description" name="grupo" class="form-control" placeholder="Nombre del grupo de variables" required ng-minlength="5">
+
+	<div class="error-messages" ng-show="isMessagesVisible('grupo')" ng-messages="qualificationModelForm.grupo.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <div ng-message="minlength">El Nombre debe tener al menos 5 caracteres.</div>
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="promGroup">Promedio</label>
+	<input type="number" ng-focus="focus('promGroup')" ng-blur="blur('promGroup')" ng-model='formData.analysis[isQualitative].GDV[indexGDV[isQualitative]].prom' name="promGroup" class="form-control" placeholder="Ingrese el promedio" required>
+
+	<div class="error-messages" ng-show="isMessagesVisible('promGroup')" ng-messages="qualificationModelForm.promGroup.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <!-- NOTA: Agregar validaciones de magnitud -->
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="minGroup">Mínimo</label>
+	<input type="number" ng-focus="focus('minGroup')" ng-blur="blur('minGroup')" ng-model="formData.analysis[isQualitative].GDV[indexGDV[isQualitative]].min" name="minGroup" class="form-control" placeholder="Ingrese el mínimo" required>
+
+	<div class="error-messages" ng-show="isMessagesVisible('minGroup')" ng-messages="qualificationModelForm.minGroup.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <!-- NOTA: Agregar validaciones de magnitud -->
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="maxGroup">Máximo</label>
+	<input type="number" ng-focus="focus('maxGroup')" ng-blur="blur('maxGroup')" ng-model="formData.analysis[isQualitative].GDV[indexGDV[isQualitative]].max" name="maxGroup" class="form-control" placeholder="Ingrese el máximo" required>
+
+	<div class="error-messages" ng-show="isMessagesVisible('minGroup')" ng-messages="qualificationModelForm.minGroup.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <!-- NOTA: Agregar validaciones de magnitud -->
+    </div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-2" ng-if="editing == 0">
+		<a class="btn btn-block btn-info" ng-click="newGDV()">
+			Agregar otro grupo de variables <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+	
+	<div class="col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-2" ng-if="editing == 0">
+		<a class="btn btn-block btn-info" ng-click="addVariables(0)">
+			Siguiente <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+
+	<div class="col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-2" ng-if="editing == 1">
+		<a class="btn btn-block btn-info" ng-click="rowUpdated()">
+			Listo <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+
+</div>

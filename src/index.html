@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="metlifeApp">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Metlife App</title>
+
+	<!-- CSS -->
+	<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet" />
+	<!-- MINIFIED STYLES -->
+	<link rel="stylesheet" href="dist/css/style.min.css"/>
+	<!--link rel="stylesheet" href="dist/css/toolkit-light.min.css"/>
+	<link rel="stylesheet" href="dist/css/application.css"/-->
+	<!--link rel="stylesheet" href="app/components/qualificationModel/css/qualificationModel.css">
+	<link rel="stylesheet" href="app/components/loadInformation/css/loadInformation.css"-->
+
+	<style>
+		/* note: this is a hack for ios iframe for bootstrap themes shopify page */
+		/* this chunk of css is not part of the toolkit :) */
+		body{
+			width: 1px;
+			min-width: 100%;
+			*width: 100%;
+		}
+    </style>
+</head>
+<body>
+	<!-- MAIN content and inyected views -->
+	<!-- each angular controller applies a different class here -->
+	<div class="with-iconav">
+		<nav class="iconav" ng-include="'app/common/nav/nav.html'">
+		</nav>
+
+		<main class="with-main">
+			<div id="main-body" ui-view>
+				
+			</div>
+		</main>
+
+		<footer></footer>
+	</div>
+
+</body>
+	<!-- MINIFIED JS FILE -->
+	<!--script src="dist/js/app.min.js"></script-->
+    <script src="bower_components/jQuery/dist/jquery.min.js"></script>
+	<script src="app/common/toolkit.js"></script>
+    <script src="app/common/application.js"></script>
+
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<!--script src="lib/angular/angular-animate.js"></script>
+	<script src="lib/angular-messages/angular-messages.min.js"></script-->
+
+	<script src="app/app.module.js"></script>
+	<script src="app/app.controller.js"></script>
+	<script src="app/app.directive.js"></script>
+	<script src="app/app.filter.js"></script>
+	<script src="app/app.service.js"></script>
+
+	<script src="app/components/qualificationModel/qualificationModel.module.js"></script>
+    <script src="app/components/qualificationModel/qualificationModel.controller.js"></script>
+    <script src="app/components/qualificationModel/qualificationModel.filter.js"></script>
+    <script src="app/components/qualificationModel/qualificationModel.directive.js"></script>
+    <script src="app/components/qualificationModel/qualificationModel.service.js"></script>
+
+    <script src="app/components/loadInformation/loadInformation.module.js"></script>
+    <script src="app/components/loadInformation/loadInformation.controller.js"></script>
+    <script src="app/components/loadInformation/loadInformation.filter.js"></script>
+    <script src="app/components/loadInformation/loadInformation.directive.js"></script>
+    <script src="app/components/loadInformation/loadInformation.service.js"></script>
+</html>

@@ -1,0 +1,123 @@
+<div class="container" ng-controller="UpdateModelController">
+
+	<div class="row text-center">
+		<h2>{{analysisTitle}}</h2>
+	</div>
+
+	<div class="table-full">
+  		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Telecomunicaciones y medios</th>
+						<th>Score</th>
+						<th></th>
+						<th colspan="2">Ponderador</th>
+						<th ng-if="areAnalysisChecked == 0">Tipo de variable</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>Prom</th>
+						<th>Min</th>
+						<th>Max</th>
+						<th ng-if="areAnalysisChecked == 0">Lineal/Discreta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat-start="GDV in formData.analysis[areAnalysisChecked].GDVs">
+						<td>
+							<span ng-hide="GDV.editingDescription" ng-dblclick="editDescription(GDV)">
+								{{GDV.id + 1}}) {{GDV.description}}
+							</span>
+							<input ng-show="GDV.editingDescription" ng-model="GDV.description" ng-blur="doneEditingDescription(GDV)">
+						</td>
+						<td></td>
+						<td>
+							<span ng-hide="GDV.editingProm" ng-dblclick="editProm(GDV)">
+								{{GDV.prom}}
+							</span>
+							<input type="number" ng-show="GDV.editingProm" ng-model="GDV.prom" ng-blur="doneEditingProm(GDV)">
+						</td>
+						<td>
+							<span ng-hide="GDV.editingMin" ng-dblclick="editMin(GDV)">
+								{{GDV.min}}
+							</span>
+							<input type="number" ng-show="GDV.editingMin" ng-model="GDV.min" ng-blur="doneEditingMin(GDV)">
+						</td>
+						<td>
+							<span ng-hide="GDV.editingMax" ng-dblclick="editMax(GDV)">
+								{{GDV.max}}
+							</span>
+							<input type="number" ng-show="GDV.editingMax" ng-model="GDV.max" ng-blur="doneEditingMax(GDV)">
+						</td>
+						<td ng-if="areAnalysisChecked == 0"></td>
+					</tr>
+					<tr ng-repeat-start="variable in GDV.variables">
+						<td>
+							<span ng-hide="variable.editingDescription" ng-dblclick="editDescription(variable)">
+								{{GDV.id + 1}}.{{variable.id + 1}}) {{variable.description}}
+							</span>
+							<input ng-show="variable.editingDescription" ng-model="variable.description" ng-blur="doneEditingDescription(variable)" />
+						</td>
+						<td></td>
+						<td>
+							<span ng-hide="variable.editingProm" ng-dblclick="editProm(variable)">
+								{{variable.prom}}
+							</span>
+							<input type="number" ng-show="variable.editingProm" ng-model="variable.prom" ng-blur="doneEditingProm(variable)">
+						</td>
+						<td>
+							<span ng-hide="variable.editingMin" ng-dblclick="editMin(variable)">
+								{{variable.min}}
+							</span>
+							<input type="number" ng-show="variable.editingMin" ng-model="variable.min" ng-blur="doneEditingMin(variable)">
+						</td>
+						<td>
+							<span ng-hide="variable.editingMax" ng-dblclick="editMax(variable)">
+								{{variable.max}}
+							</span>
+							<input type="number" ng-show="variable.editingMax" ng-model="variable.max" ng-blur="doneEditingMax(variable)">
+						</td>
+						<td ng-if="areAnalysisChecked == 0">{{variable.variableType}}</td>
+					</tr>
+					<tr ng-repeat-end ng-repeat="value in variable.values">
+						<td>
+							<span ng-hide="value.editingDescription" ng-dblclick="editDescription(value)">
+								{{GDV.id + 1}}.{{variable.id + 1}}.{{value.id + 1}}) {{value.description}}
+							</span>
+							<input ng-show="value.editingDescription" ng-model="value.description" ng-blur="doneEditingDescription(value)" />
+						</td>
+						<td>
+							<span ng-hide="value.editingScore" ng-dblclick="editScore(value)">
+								{{value.score}}
+							</span>
+							<input type="number" ng-show="value.editingScore" ng-model="value.score" ng-blur="doneEditingScore(value)">
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td ng-if="areAnalysisChecked == 0"></td>
+					</tr>
+					<tr ng-repeat-end style="display: none;">
+						<td colspan="6" ng-if="areAnalysisChecked == 0"></td>
+						<td colspan="5" ng-if="areAnalysisChecked == 1"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<!--pre>
+			{{ formData }}
+		</pre-->
+		<div class="col-sm-10"></div>
+		<div class="col-sm-2">
+			<a ng-if='areAnalysisChecked == 0' class="btn btn-block btn-info" ng-click="nextAnalysis()">Siguiente <span class="glyphicon glyphicon-circle-arrow-righ"></span></a>
+
+			<a ng-if='areAnalysisChecked == 1' class="btn btn-block btn-info" ng-click="update()">Terminar <span class="glyphicon glyphicon-circle-arrow-righ"></span></a>
+		</div>
+	</div>
+
+</div>

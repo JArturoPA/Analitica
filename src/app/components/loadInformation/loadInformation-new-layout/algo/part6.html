@@ -1,0 +1,37 @@
+<div class="row">
+	<h2>Análisis Cuantitativo</h2>
+	<h2>Nombre y Descripción</h2>
+</div>
+
+<div class="form-group">
+
+	<label for="name">Nombre</label>
+	<input type="text" ng-focus="focus('name')" ng-blur="blur('name')" ng-model="formData[isCuantitative].name"
+		name="name" class="form-control" placeholder="Ingrese un nombre" required
+		ng-minlength="5" ng-pattern="/^[\w -]*$/">
+
+	<div class="error-messages" ng-show="isMessagesVisible('name')" ng-messages="qualificationModelForm.name.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <div ng-message="minlength">El Nombre debe tener al menos 5 caracteres.</div>
+        <div ng-message="pattern">Caracteres especiales no permitidos.</div>
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="description">Descripción</label>
+	<textarea class="form-control" rows="3" name="description" ng-model="formData[isCuantitative].description"
+		placeholder="Ingrese una descripción para el modelo"></textarea>
+
+</div>
+
+<div class="form-group row">
+
+	<div class="col-xs-6 col-xs-offset-3">
+		<a ui-sref="qualificationModel.new.part2" class="btn btn-block btn-info">
+			Siguiente <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+
+</div>

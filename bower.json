@@ -1,0 +1,24 @@
+{
+  "name": "metlife-risk-manager",
+  "version": "1.0.0",
+  "authors": [
+    "Arturo Pérez"
+  ],
+  "description": "Metlife App to manage the risk",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "scripts",
+    "src/less"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-router": "^0.4.2",
+    "jQuery": "^3.1.1"
+  }
+}

@@ -1,0 +1,96 @@
+<div class="row">
+	<h4>Definición</h4>
+</div>
+
+<div class="form-group">		
+
+	<label for="groups">Grupos</label>
+	<select class="form-control" name="groups" ng-model="formData.groups"
+		    ng-init="formData.groups = formData.groups || grupos[0]"
+		    ng-options="grupo.label for grupo in grupos" >
+	</select>
+
+</div>
+
+<div class="row">
+	Aquí se deberían ver las opciones de subgrupos para el grupo seleccionado.
+</div>
+
+<div class="form-group">		
+
+	<label for="subGroups">Subgrupos</label>
+	<select class="form-control" name="subGroups" ng-model="formData.subGroups"
+		    ng-init="formData.subGroups = formData.subGroups || subGrupos[0]"
+		    ng-options="subGrupo.label for subGrupo in subGrupos" >
+	</select>
+
+</div>
+
+<div class="form-group">
+
+	<label for="nivel">Nivel</label>
+	<input type="number" ng-focus="focus('nivel')" ng-blur="blur('nivel')" ng-model='formData.nivel' name="nivel" class="form-control" placeholder="Ingrese el nivel" required>
+
+	<div class="error-messages" ng-show="isMessagesVisible('nivel')" ng-messages="layoutInformationModelForm.nivel.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="shortName">Sobrenombre</label>
+	<input type="text" ng-focus="focus('shortName')" ng-blur="blur('shortName')" ng-model="formData.shortName" name="shortName" class="form-control" placeholder="Ingrese un sobrenombre" ng-minlength="5">
+
+	<div class="error-messages" ng-show="isMessagesVisible('shortName')" ng-messages="layoutInformationModelForm.shortName.$error" ng-cloak>
+        <div ng-message="minlength">El Nombre debe tener al menos 5 caracteres.</div>
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="factor">Factor</label>
+	<input type="number" ng-focus="focus('factor')" ng-blur="blur('factor')" ng-model="formData.factor" name="factor" class="form-control" placeholder="Ingrese el mínimo">
+
+	<div class="error-messages" ng-show="isMessagesVisible('factor')" ng-messages="layoutInformationModelForm.factor.$error" ng-cloak>
+        <!-- NOTA: Agregar validaciones de magnitud -->
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="description">Descripción</label>
+	<input type="text" ng-focus="focus('description')" ng-blur="blur('description')" ng-model="formData.description"
+		name="description" class="form-control" placeholder="Ingrese el contenido de la fila a leer (clave)" required>
+
+	<div class="error-messages" ng-show="isMessagesVisible('description')" ng-messages="layoutInformationModelForm.description.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="column">Columna</label>
+	<input type="text" ng-focus="focus('column')" ng-blur="blur('column')" ng-model="formData.column"
+		name="column" class="form-control" placeholder="Ingrese el nombre de la columna que contiene el valor a cargar" required>
+
+	<div class="error-messages" ng-show="isMessagesVisible('column')" ng-messages="layoutInformationModelForm.column.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+    </div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-xs-7"></div>
+
+	<div class="col-xs-3 col-xs-offset-2">
+		<a class="btn btn-block btn-info">
+			Listo <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+
+</div>

@@ -1,0 +1,297 @@
+@media (min-width: 768px) {
+	main{
+		position: absolute;
+		left: 71px;
+		top: 50;
+		right: 0;
+	}
+}
+
+.statcard {
+  min-height: 150px;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.statcard-success:hover {
+  background: #1bb881;
+}
+
+.statcard-danger:hover {
+  background: #c92235;
+}
+
+.statcard-info:hover {
+  background: #6e52de;
+}
+
+.statcard-warning:hover {
+  background: #d6c722;
+}
+
+.m-b a:hover,
+.m-b a:active,
+.m-b a:focus {
+  text-decoration: none;
+}
+
+.statcard-desc {
+	font-size: 100%;
+	letter-spacing: .20em;
+}
+
+@media (max-width: 768px) {
+	div.row{
+		margin-left: 0;
+    	margin-right: 0;
+	}
+
+	.statcard {
+	  min-height: 100px;
+	  max-width: 75%;
+	  margin: 0 auto;
+	}
+
+	.statcard div.p-a {
+	  padding: 28px 20px 8px 20px !important;
+	}
+
+	.statcard h2 {
+		font-size: 18px;
+	}
+
+	.col-sm-12 {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	div.row div.col-xs-10{
+	    padding: 6px 12px;
+	}
+}
+
+/**************************************/
+div > div.statcard{
+	position: relative;
+}
+div.statcard > a > div.p-a{
+	position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+}
+/**************************************/
+/****************************************/
+/* numbered buttons */
+#status-buttons{}
+#status-buttons a{ 
+	color: #FFF;
+	display:inline-block; 
+	font-size:12px; 
+	margin-right:10px; 
+	text-align:center; 
+	text-transform:uppercase; 
+}
+#status-buttons a:hover,
+#status-buttons a:active,
+#status-buttons a:focus { 
+	text-decoration:none; 
+}
+
+/* we will style the span as the circled number */
+#status-buttons span.inner{ 
+	background:#9f86ff; 
+	display:block; 
+	height:30px; 
+	margin:0 auto 10px; 
+	padding-top:5px; 
+	width:30px; 
+    border-radius:50%; 
+}
+
+/* active buttons turn light green-blue*/
+#status-buttons a.active span.inner   { 
+	background:#6248c3; 
+	color: #FFF;
+}
+
+.animate-show {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    opacity: 1;
+}
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+    display: inline-block !important;
+}
+.animate-show.ng-hide {
+    opacity: 0;
+}
+
+/* ANIMATION STYLINGS
+============================================================================= */
+@media (min-width: 768px) {
+	#main-body.ng-enter,
+	#main-body.ng-leave {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0px;
+	    transition:0.6s all ease; 
+	    -moz-transition:0.6s all ease; 
+	    -webkit-transition:0.6s all ease;
+	}
+}
+
+@media (max-width: 767px) {
+	#main-body.ng-enter,
+	#main-body.ng-leave, {
+		position: absolute;
+		left: 10px;
+		top: 50px;
+		right: 10px;
+	    transition:0.6s all ease; 
+	    -moz-transition:0.6s all ease; 
+	    -webkit-transition:0.6s all ease;
+	}
+}
+
+#main-body.ng-enter{
+	-webkit-animation:moveFromRight 0.6s ease both;
+    -moz-animation:moveFromRight 0.6s ease both;
+    animation:moveFromRight 0.6s ease both;
+
+    animation-delay: 0.7s;
+	-moz-animation-delay: 0.7s;
+	-webkit-animation-delay: 0.7s;
+}
+#main-body.ng-leave{
+	-webkit-animation:fadeOut 0.6s ease both;
+    -moz-animation:fadeOut 0.6s ease both;
+    animation:fadeOut 0.6s ease both;
+}
+
+#updModel.ng-enter,
+#updModel.ng-leave {
+	position: absolute;
+	left: 101px;
+	right: 101px;
+    transition:0.6s all ease; 
+    -moz-transition:0.6s all ease; 
+    -webkit-transition:0.6s all ease;
+}
+
+#updModel.ng-enter {
+	-webkit-animation:moveFromRight 0.6s ease both;
+    -moz-animation:moveFromRight 0.6s ease both;
+    animation:moveFromRight 0.6s ease both;
+
+    animation-delay: 0.7s;
+	-moz-animation-delay: 0.7s;
+	-webkit-animation-delay: 0.7s;
+}
+
+#updModel.ng-leave {
+	-webkit-animation:fadeOut 0.6s ease both;
+    -moz-animation:fadeOut 0.6s ease both;
+    animation:fadeOut 0.6s ease both;
+}
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+#form-views.ng-enter,
+#form-views.ng-leave { 
+	position:absolute; 
+	left:101px; 
+	right:101px;
+    transition:0.6s all ease; 
+    -moz-transition:0.6s all ease; 
+    -webkit-transition:0.6s all ease; 
+}
+
+/* enter animation */
+#form-views.ng-enter            { 
+    -webkit-animation:slideInRight 0.6s both ease;
+    -moz-animation:slideInRight 0.6s both ease;
+    animation:slideInRight 0.6s both ease;
+}
+
+/* leave animation */
+#form-views.ng-leave            { 
+    -webkit-animation: scaleDown .6s ease both;
+    -moz-animation: scaleDown .6s ease both;
+    animation: scaleDown .6s ease both;
+}
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+
+@keyframes slideOutLeft {
+    to      { transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {  
+    to      { -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to      { -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(200%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(200%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(200%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+/* scale and fade */
+@keyframes scaleDown {
+	from { }
+	to { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
+}
+@-moz-keyframes scaleDown {
+	from { }
+	to { opacity: 0; -moz-transform: scale(.8); }
+}
+@-webkit-keyframes scaleDown {
+	from { }
+	to { opacity: 0; -webkit-transform: scale(.8); }
+}
+
+/* moveFromRight */
+@keyframes moveFromRight {
+	from { opacity: 0;  }
+}
+@-moz-keyframes moveFromRight {
+	from { opacity: 0; }
+}
+@-webkit-keyframes moveFromRight {
+	from { opacity: 0;  }
+}
+
+/* Fade Out */
+@keyframes fadeOut {
+	from {  }
+	to { opacity: 0; }
+}
+@-moz-keyframes fadeOut {
+	from {  }
+	to { opacity: 0; }
+}
+@-webkit-keyframes fadeOut {
+	from {  }
+	to { opacity: 0; }
+}
+
+/*////////////////////////////////////////////////*/
+/*//////////////    UPDATE TABLES   //////////////*/
+/*////////////////////////////////////////////////*/

@@ -1,0 +1,81 @@
+<div class="row">
+	<h3 ng-if="isQualitative == 1">Análisis Cualitativo</h3>
+	<h3 ng-if="isQualitative == 0">Análisis Cuantitativo</h3>
+
+	<h2>Reporte previo</h2>
+</div>
+
+<table class="table-bordered table-hover table-condensed">
+	<thead>
+		<tr>
+			<th>{{formData.tdsi.label}}</th>
+			<th>Score</th>
+			<th colspan="3">Ponderador</th>
+			<th ng-if="isQualitative == 0">Tipo de variable</th>
+			<th>Acción</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th>Prom</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th ng-if="isQualitative == 0">Lineal / Discreta</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat-start="GDV in formData.analysis[isQualitative].GDV">
+			<td>{{GDV.id + 1}}) {{GDV.description}}</td>
+			<td></td>
+			<td>{{GDV.prom}}</td>
+			<td>{{GDV.min}}</td>
+			<td>{{GDV.max}}</td>
+			<td ng-if="isQualitative == 0"></td>
+			<td>
+				<a class="btn btn-block btn-info" 
+				ng-click="editRow(GDV.id,0,0,2+(4*isQualitative))">Editar</a>
+			</td>
+		</tr>
+		<tr ng-repeat-start="variable in GDV.variables">
+			<td>  {{GDV.id + 1}}.{{variable.id + 1}}) {{variable.description}}</td>
+			<td></td>
+			<td>{{variable.prom}}</td>
+			<td>{{variable.min}}</td>
+			<td>{{variable.max}}</td>
+			<td ng-if="isQualitative == 0">{{variable.variableType == 0 ? 'Lineal' : 'Discreta'}}</td>
+			<td>
+				<a class="btn btn-block btn-info" 
+				ng-click="editRow(GDV.id,variable.id,0,3+(4*isQualitative))">Editar</a>
+			</td>
+		</tr>
+		<tr ng-repeat-end ng-repeat="value in variable.values">
+			<td>{{GDV.id + 1}}.{{variable.id + 1}}.{{value.id + 1}}) {{value.description}}</td>
+			<td>{{value.score}}</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td ng-if="isQualitative == 0"></td>
+			<td>
+				<a class="btn btn-block btn-info" 
+				ng-click="editRow(GDV.id,variable.id,value.id,4+(4*isQualitative))">Editar</a>
+			</td>
+		</tr>
+		<tr ng-repeat-end style="display: none;">
+			<td colspan="7"></td>
+		</tr>
+	</tbody>
+</table>
+
+ <br />
+
+<div class="form-group row">
+	<div class="col-xs-4 col-xs-offset-2">
+		<a class="btn btn-block btn-info" ng-click="sendQualificationModel()">
+			Aceptar <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+</div>
+<!--button type="submit" class="btn btn-success btn-lg btn-block" ng-disabled="modelForm.$invalid">
+	Guardar
+</button-->

@@ -1,0 +1,55 @@
+<div class="row">
+	<h3>Información general</h3>
+</div>
+
+<div class="form-group">
+
+	<label for="name">Nombre</label>
+	<input type="text" ng-focus="focus('name')" ng-blur="blur('name')" ng-model="formData.name"
+		name="name" class="form-control" placeholder="Ingrese un nombre" required
+		ng-minlength="5" ng-pattern="/^[\w -]*$/">
+
+	<div class="error-messages" ng-show="isMessagesVisible('name')" ng-messages="qualificationModelForm.name.$error" ng-cloak>
+        <div ng-message="required">Debe llenar este campo.</div>
+        <div ng-message="minlength">El Nombre debe tener al menos 5 caracteres.</div>
+        <div ng-message="pattern">Caracteres especiales no permitidos.</div>
+    </div>
+
+</div>
+
+<div class="form-group">
+
+	<label for="description">Descripción</label>
+	<textarea class="form-control" rows="3" name="description" ng-model="formData.description"
+		placeholder="Ingrese una descripción para el modelo"></textarea>
+
+</div>
+
+<div class="form-group">		
+
+	<label for="tdsi">Tipo de sector industrial</label>
+	<select class="form-control" name="tdsi" ng-disabled="formData.checkTdsi"
+		    ng-model="formData.tdsi"
+		    ng-init="formData.tdsi = formData.tdsi || sectores[0]"
+		    ng-options="sectores.label for sectores in sectores" >
+	</select>
+
+</div>
+
+<div class="form-group">
+	<!-- Aquí deberíamos usar ngchange para su función -->	
+	<label for="selAllTdsi">Aplica a todos los sectores</label>
+	<input type="checkbox" name="selAllTdsi" ng-model="formData.checkTdsi">
+
+</div>
+
+
+<div class="form-group row">
+
+	<div class="col-xs-6 col-xs-offset-3">
+		<a ui-sref="addQualificationModel.part2" class="btn btn-block btn-info" ng-click="addGDV(0)">
+			Siguiente <span class="glyphicon glyphicon-circle-arrow-righ"></span>
+		</a>
+	</div>
+
+</div>
