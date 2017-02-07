@@ -4,7 +4,8 @@
   "author": "Arturo Pérez",
   "description": "Metlife App to manage the risk",
   "scripts": {
-    "start": "grunt",
+    "prepare": "npm install && bower install",
+    "start-developEnv": "grunt start-development",
     "test": "karma start"
   },
   "license": "MIT",
