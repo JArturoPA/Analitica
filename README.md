@@ -1,35 +1,36 @@
 # Metlife risk manager
 
-One Paragraph of project description goes here
+This is the Metlife risk manager app repository, developed by Analítica Consultores S.A. de C.V.
 
 ```
-toolkit/
-  ├── gulpfile.js
+root/
+  ├── Gruntfile.js
   ├── package.json
   ├── README.md
-  ├── docs/
-  ├── less/
-  │   ├── bootstrap/
-  │   ├── custom/
-  │   ├── variables.less
-  │   └── toolkit.less
-  ├── js/
-  │   ├── bootstrap/
-  │   └── custom/
-  ├── fonts/
-  │   ├── bootstrap-entypo.eot
-  │   ├── bootstrap-entypo.svg
-  │   ├── bootstrap-entypo.ttf
-  │   ├── bootstrap-entypo.woff
-  │   └── bootstrap-entypo.woff2
-  └── dist/
-      ├── toolkit.css
-      ├── toolkit.css.map
-      ├── toolkit.min.css
-      ├── toolkit.min.css.map
-      ├── toolkit.js
-      └── toolkit.min.js
-```
+  ├── bower.json
+  ├── .bowerrc
+  ├── .gitignore
+  ├── scripts/
+  │   ├── test.sh
+  │   ├── test-all.sh
+  │   ├── e2e-test.sh
+  │   ├── test.bat
+  │   ├── e2e-test.bat
+  │   └── web-server.js
+  └── src/
+      ├── app/
+      │   ├── common/
+      │   ├── components/
+      │   ├── app.controller.js
+      │   ├── app.directive.js
+      │   ├── app.filter.js
+      │   ├── app.module.js
+      │   ├── app.service.js
+      │   └── app.css
+      ├── fonts/
+      ├── img/
+      ├── less/
+      └── index.html
 
 ### List of features:
 
@@ -41,18 +42,8 @@ Give examples
 
 ### Setup and install
 
-A step by step series of examples that tell you have to get a development env running
+After clone the repository:
 
-Say what the step will be
+    https://github.com/JArturoPA/Analitica
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Execute 'npm run prepare' to download all dependencies, after that, execute 'npm run start-developEnv' (it only has a development environment at the moment) to start the javascript node-server and check the html page in 'http://localhost:8000/'.
